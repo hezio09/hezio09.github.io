@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login Form Design One</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="login-box">
+    <div id="video-bg">
+      <video autoplay muted loop id="video-bg-source">
+        <source src="img/pexels.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="login-content">
+      <img class="avatar" src="img/logo.png" alt="logo navideño">
+      <h1>Login Here</h1>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter Username">
+        <!-- PASSWORD INPUT -->
+        <label for="password">Password</label>
+        <input type="password" placeholder="Enter Password">
+        <input type="submit" value="Log In">
+        <a href="#">Lost your Password?</a>
+      </form>
+      <div id="bloqueo" class="bloqueado" style="display: none;">
+        <p>La página está bloqueada. Debes esperar <span id="tiempoRestante"></span> segundos antes de intentar de nuevo.</p>
+        <button id="cerrarBloqueo">Cerrar</button>
+      </div>
+    </div>
+    <script src="js/formValidation.js"></script>
+  </div>
+</body>
+</html>
+
+

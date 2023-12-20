@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticador</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .sale-message {
+            color: #fff; /* Blanco */
+            font-size: 24px;
+            text-align: center;
+            padding: 2px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #2c3e50; /* Azul oscuro */
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: #fff; /* Blanco */
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff; /* Blanco */
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #34495e; /* Azul más oscuro */
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 30px;
+            color: #fff; /* Blanco */
+        }
+
+        #main {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.5s;
+        }
+
+        .options-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: #c0392b; /* Rojo */
+        }
+
+        .options-dropdown {
+            position: absolute;
+            top: 10px;
+            right: 40px;
+            width: 200px;
+            background-color: #fff; /* Blanco */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            display: none;
+        }
+
+        .options-dropdown a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333;
+        }
+
+        .options-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .logout-btn {
+            cursor: pointer;
+            color: #c0392b; /* Rojo */
+        }
+
+        .navbar {
+            background-color: #fff; /* Blanco */
+            box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.2);
+        }
+
+        .navbar-icon {
+            font-size: 24px;
+            color: #c0392b; /* Rojo */
+            margin-right: 5px;
+        }
+
+        h1 {
+            color: #c0392b; /* Rojo */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            background-color: #fff; /* Blanco */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .card {
+            width: 100%;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .container-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="mySidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#"><strong>Árboles y luces</strong></a>
+        <a href="#"><strong>Regalos</strong></a>
+        <a href="#"><strong>Decoraciones navideñas</strong></a>
+        <a href="#"><strong>Ofertas</strong></a>
+        <a href="#"><strong>Menaje</strong></a>
+    </div>
+
+    <div id="main">
+        <nav class="navbar">
+            <span class="options-btn" onclick="openNav()">☰</span>
+            <div class="options-dropdown">
+                <a href="#" onclick="logout()">Cerrar sesión</a>
+                <button type="button" class="btn btn-link" onclick="irACambiarContrasena()">Cambiar Contraseña</button>
+            </div>
+            <div class="d-flex align-items-center ml-auto">
+                <div class="navbar-text">
+                    Ezio Mamani Choquetico
+                </div>
+                <div class="options-btn ml-2" onclick="toggleOptions()">⚙️</div>
+            </div>
+        </nav>
+
+        <div class="container mt-3">
+            <div class="sale-message">
+            <h1>Venta de articulos festivos</h1>    
+            </div>
+        <div class="row">
+                <!-- Aquí se encuentran las cartas -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="adr/nav5.jpg" class="card-img-top" alt="Adorno Navideño">
+                            <h5 class="card-title">Árboles</h5>
+                            <p class="card-text">Decora tu espacio con este hermoso adorno navideño.</p>
+                            <a href="#" class="btn btn-primary">Detalles</a>
+                        </div>                   
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="adr/nav4.jpg" class="card-img-top" alt="Adorno Navideño">
+                        <h5 class="card-title">Flores navideñas</h5>
+                          <p class="card-text">Decora tu espacio con este hermoso adorno navideño.</p>
+                         <a href="#" class="btn btn-primary">Detalles</a>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                            <img src="adr/nav3.jpg" class="card-img-top" alt="Adorno Navideño">
+                        <h5 class="card-title">Adornos de Árbol</h5>
+                        <p class="card-text">Decora tu espacio con este hermoso adorno navideño.</p>
+                        <a href="#" class="btn btn-primary">Detalles</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                               <img src="adr/nav2.jpg" class="card-img-top" alt="Adorno Navideño">
+                            <h5 class="card-title">Decoración</h5>
+                            <p class="card-text">Decora tu espacio con este hermoso adorno navideño.</p>
+                            <a href="#" class="btn btn-primary">Detalles</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                                <img src="adr/nav6.jpg" class="card-img-top" alt="Adorno Navideño">
+                            <h5 class="card-title">Luces</h5>
+                            <p class="card-text">Decora tu espacio con este hermoso adorno navideño.</p>
+                            <a href="#" class="btn btn-primary">Detalles</a>
+                    </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+
+        function toggleOptions() {
+            const optionsDropdown = document.querySelector('.options-dropdown');
+            optionsDropdown.style.display = optionsDropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function logout() {
+            // Redirigir a la página de inicio (index.html)
+            window.location.href = 'index.html';
+        }
+
+        function irACambiarContrasena() {
+            window.location.href = 'Cambiar_contraseña.html';
+        }
+    </script>
+</body>
+</html>
